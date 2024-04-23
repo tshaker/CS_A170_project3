@@ -15,14 +15,43 @@ public class StudentDirectory {
 		final int ROWS = data.length;
 		final int COLS = data[0].length;
 
+		// print table header
+		System.out.print("          | ");
+		for (int i = 0; i < COLS; i++) {
+			System.out.print("Assignment " + i + " | ");
+		}
+		System.out.print("Highest      | ");
+		System.out.print("Lowest       | ");
+		System.out.print("Total        | ");
+		System.out.println();
+		for (int i = 0; i < 11 + (COLS + 3) * 15; i++) {
+			System.out.print("-");
+		}
+		System.out.println();
+
+		// print table body
 		for (int i = 0; i < ROWS; i++) {
+			System.out.print("Student " + i + " | ");
 			for (int j = 0; j < COLS; j++) {
-				System.out.printf("%10.2f ", data[i][j]);
+				System.out.printf("%12.2f | ", data[i][j]);
 			}
+			System.out.printf("%12.2f | ", getHighestInRow(data, i));
+			System.out.printf("%12.2f | ", getLowestInRow(data, i));
+			System.out.printf("%12.2f | ", getRowTotal(data, i));
 			System.out.println();
 		}
 
-		System.out.println("============================");
+		// print column totals
+		System.out.print("Total     | ");
+		for (int i = 0; i < COLS; i++) {
+			System.out.printf("%12.2f | ", getColumnTotal(data, i));
+		}
+		System.out.println();
+
+		for (int i = 0; i < 11 + (COLS + 3) * 15; i++) {
+			System.out.print("=");
+		}
+		System.out.println();
 		System.out.println("Total: " + getTotal(data));
 		System.out.printf("Average: %.2f ", getAverage(data));
 	}
@@ -33,7 +62,7 @@ public class StudentDirectory {
 
 		for (int i = 0; i < ROWS; i++) {
 			for (int j = 0; j < COLS; j++) {
-				data[i][j] = Math.round(Math.random() * 100.0);
+				data[i][j] = Math.round(Math.random() * 100);
 			}
 		}
 	}
