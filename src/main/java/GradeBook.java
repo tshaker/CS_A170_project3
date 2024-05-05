@@ -6,9 +6,9 @@ public class GradeBook {
     }
 
     public static void main(String[] args) {
-        GradeBook directory = new GradeBook(3, 3);
-        populateData(directory.data);
-        printData(directory.data);
+        GradeBook grades = new GradeBook(3, 3);
+        populateData(grades.data);
+        printData(grades.data);
     }
 
     public static void printData(double[][] data) {
