@@ -1,14 +1,14 @@
 public class GradeBook {
-    double[][] data;
+    double[][] grades;
 
     public GradeBook(int numStudents, int numAssignments) {
-        this.data = new double[numStudents][numAssignments];
+        this.grades = new double[numStudents][numAssignments];
     }
 
     public static void main(String[] args) {
-        GradeBook grades = new GradeBook(3, 3);
-        populateData(grades.data);
-        printData(grades.data);
+        GradeBook book = new GradeBook(3, 3);
+        populateData(book.grades);
+        printData(book.grades);
     }
 
     public static void printData(double[][] data) {
