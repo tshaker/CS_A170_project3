@@ -10,13 +10,24 @@
 
 public class TwoDArray {
 
+    /**
+     * Creates an empty 2D integer array, populates it with data, prints the data,
+     * and displays test values.
+     * 
+     * @param args command-line arguments
+     */
     public static void main(String[] args) {
-        int[][] grades = new int[3][3];
-        populateData(grades);
-        printTable(grades);
-        test(grades);
+        int[][] data = new int[3][3];
+        populateData(data);
+        printTable(data);
+        test(data);
     }
 
+    /**
+     * Displays test values for testing the class.
+     * 
+     * @param data a 2D integer array
+     */
     public static void test(int[][] data) {
         int total = getTotal(data);
         System.out.println("The total of these values is: " + total);
@@ -37,6 +48,11 @@ public class TwoDArray {
         System.out.println("The lowest value in row #2 is " + lowestInRow);
     }
 
+    /**
+     * Prints all the values of the array in a table format.
+     * 
+     * @param data a 2D integer array
+     */
     public static void printTable(int[][] data) {
         final int ROWS = data.length;
         final int COLS = data[0].length;
@@ -53,6 +69,11 @@ public class TwoDArray {
         System.out.println();
     }
 
+    /**
+     * Populates the data array with test data.
+     * 
+     * @param data a 2D integer array
+     */
     public static void populateData(int[][] data) {
         final int ROWS = data.length;
         final int COLS = data[0].length;
@@ -65,6 +86,12 @@ public class TwoDArray {
         }
     }
 
+    /**
+     * Calculates the total of all the values in the 2D array.
+     * 
+     * @param data a 2D integer array
+     * @return the total of all the values in the 2D array
+     */
     public static int getTotal(int[][] data) {
         final int ROWS = data.length;
         final int COLS = data[0].length;
@@ -79,6 +106,12 @@ public class TwoDArray {
         return total;
     }
 
+    /**
+     * Gets the average of all the values in the 2D array.
+     * 
+     * @param data a 2D integer array
+     * @return the average of all the values in the 2D array
+     */
     public static double getAverage(int[][] data) {
         final int ROWS = data.length;
         final int COLS = data[0].length;
@@ -87,6 +120,13 @@ public class TwoDArray {
         return total / (ROWS * COLS);
     }
 
+    /**
+     * Calculates the total of all the values in a row.
+     * 
+     * @param data a 2D integer array
+     * @param row  the row to calculate the total of
+     * @return the total of all the values in the row
+     */
     public static int getRowTotal(int[][] data, int row) {
         final int COLS = data[row].length;
         int total = 0;
@@ -98,6 +138,13 @@ public class TwoDArray {
         return total;
     }
 
+    /**
+     * Calculates the total of all the values in a column.
+     * 
+     * @param data a 2D integer array
+     * @param col  the column to calculate the total of
+     * @return the total of all the values in the column
+     */
     public static int getColumnTotal(int[][] data, int col) {
         final int ROWS = data.length;
         int total = 0;
@@ -109,6 +156,13 @@ public class TwoDArray {
         return total;
     }
 
+    /**
+     * Finds the highest value in a row.
+     * 
+     * @param data a 2D integer array
+     * @param row  the row to find the highest value of
+     * @return the highest value in the row
+     */
     public static int getHighestInRow(int[][] data, int row) {
         final int COLS = data[row].length;
         int max = Integer.MIN_VALUE;
@@ -120,6 +174,13 @@ public class TwoDArray {
         return max;
     }
 
+    /**
+     * Finds the lowest value in a row.
+     * 
+     * @param data a 2D integer array
+     * @param row  the row to find the lowest value of
+     * @return the lowest value in the row
+     */
     public static int getLowestInRow(int[][] data, int row) {
         final int COLS = data[row].length;
         int min = Integer.MAX_VALUE;
