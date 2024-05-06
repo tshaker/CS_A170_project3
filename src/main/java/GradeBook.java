@@ -1,3 +1,5 @@
+import static org.junit.Assert.assertEquals;
+
 public class GradeBook {
     double[][] grades;
 
@@ -8,10 +10,43 @@ public class GradeBook {
     public static void main(String[] args) {
         GradeBook book = new GradeBook(3, 3);
         populateData(book.grades);
-        printData(book.grades);
+        printTable(book.grades);
+        test(book.grades);
     }
 
-    public static void printData(double[][] data) {
+    public static void test(double[][] data) {
+        System.out.println("Tests:");
+        final double delta = 0.001; // delta value for comparing doubles
+
+        // Test Row 2
+        double highestInRow = getHighestInRow(data, 1);
+        System.out.println("Highest in Row 2: " + highestInRow);
+        assertEquals(6, highestInRow, delta);
+
+        double lowestInRow = getLowestInRow(data, 1);
+        System.out.println("Lowest in Row 2: " + lowestInRow);
+        assertEquals(4, lowestInRow, delta);
+
+        double rowTotal = getRowTotal(data, 1);
+        System.out.println("Row 2 Total: " + rowTotal);
+        assertEquals(15, rowTotal, delta);
+
+        // Test Last Column
+        double columnTotal = getColumnTotal(data, 2);
+        System.out.println("Column 3 Total: " + columnTotal);
+        assertEquals(18, columnTotal, delta);
+
+        // Total and Average
+        double total = getTotal(data);
+        System.out.println("Total: " + total);
+        assertEquals(45, total, delta);
+
+        double average = getAverage(data);
+        System.out.println("Average: " + average);
+        assertEquals(5, average, delta);
+    }
+
+    public static void printTable(double[][] data) {
         final int ROWS = data.length;
         final int COLS = data[0].length;
 
@@ -52,17 +87,16 @@ public class GradeBook {
             System.out.print("=");
         }
         System.out.println();
-        System.out.println("Total: " + getTotal(data));
-        System.out.printf("Average: %.2f ", getAverage(data));
     }
 
     public static void populateData(double[][] data) {
         final int ROWS = data.length;
         final int COLS = data[0].length;
+        final int[][] testData = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
 
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLS; j++) {
-                data[i][j] = Math.round(Math.random() * 100);
+                data[i][j] = testData[i][j];
             }
         }
     }
