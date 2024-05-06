@@ -1,3 +1,12 @@
+/*
+  Hauen-Limkilde, Marcus
+  Shaker, Tim     
+
+  May 6, 2024
+
+  CS A170
+  Project 3
+*/
 
 public class GradeBook {
     double[][] grades;
